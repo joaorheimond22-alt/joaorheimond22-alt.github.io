@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Para Thaís 🌻</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:24px 18px;background:linear-gradient(145deg,#fff8d9,#ffe5a8);
+  color:#3b2b16;
+}
+.card{
+  width:100%;max-width:430px;background:rgba(255,255,255,.94);
+  border-radius:28px;padding:32px 22px 28px;text-align:center;
+  box-shadow:0 14px 40px rgba(90,60,10,.16);
+}
+.sun{font-size:58px;margin-bottom:8px}
+h1{font-size:28px;margin:0 0 8px}
+.subtitle{font-size:16px;color:#755f42;margin:0 0 25px}
+label{display:block;text-align:left;font-weight:700;margin:0 0 8px}
+input{
+  width:100%;height:54px;border:2px solid #ead59a;border-radius:15px;
+  padding:0 16px;font-size:18px;outline:none;background:#fff;
+  -webkit-appearance:none;
+}
+input:focus{border-color:#e7ad28}
+button{
+  width:100%;height:54px;border:0;border-radius:15px;margin-top:14px;
+  background:#e5a719;color:white;font-size:18px;font-weight:800;
+  -webkit-tap-highlight-color:transparent;
+}
+button:active{transform:scale(.98)}
+.hidden{display:none}
+.error{color:#b33a2b;font-weight:700;margin:12px 0 0;min-height:22px}
+.letter{text-align:left;line-height:1.7;font-size:17px;color:#4b3922}
+.letter p{margin:0 0 15px}
+.small{font-size:14px;color:#8b7350;margin-top:20px}
+</style>
+</head>
+<body>
+<main class="card">
+
+  <!-- PARTE 1 -->
+  <section id="part1">
+    <div class="sun">🌻</div>
+    <h1>Uma perguntinha, Thaís... ❤️</h1>
+    <p class="subtitle">Só quem viveu essa história vai saber responder. 😌</p>
+    <label for="answer">Em que dia demos nosso primeiro beijo?</label>
+    <input id="answer" type="text" inputmode="numeric" autocomplete="off" placeholder="DD/MM">
+    <button id="check">Responder 🌻</button>
+    <div id="error" class="error"></div>
+  </section>
+
+  <!-- PARTE 2 -->
+  <section id="part2" class="hidden">
+    <div class="sun">🌻</div>
+    <h1>Acertou! ❤️</h1>
+    <p class="subtitle">Então você lembra mesmo... agora vem a próxima parte.</p>
+    <button id="next">Continuar 💛</button>
+  </section>
+
+  <!-- PARTE 3 -->
+  <section id="part3" class="hidden">
+    <div class="sun">🌻</div>
+    <h1>Para você, Thaís ❤️</h1>
+    <div class="letter">
+      <p>Thaís, eu queria que você soubesse o quanto você é importante para mim. O que eu sinto por você é muito maior do que eu consigo explicar em palavras.</p>
+      <p>Antes de sermos namorados, a gente já era melhores amigos, e talvez seja isso que torna tudo ainda mais especial. Eu amo poder rir com você, conversar sobre qualquer coisa e simplesmente ter você comigo.</p>
+      <p>Eu amo o seu jeito, o seu sorriso e a forma como você faz meus dias ficarem mais leves. Você é uma pessoa que eu quero cuidar, valorizar e ter sempre por perto.</p>
+      <p>Eu sei que nem todos os dias são perfeitos e que às vezes a gente acaba discutindo por coisas pequenas. Mas, mesmo assim, o meu amor por você continua aqui. Eu não quero que uma discussão apague tudo de bonito que a gente construiu.</p>
+      <p>Eu quero que você nunca duvide do que eu sinto. Você é especial para mim de um jeito que nenhuma outra pessoa é.</p>
+      <p>Eu te amo muito, Thaís. E se eu pudesse escolher de novo, escolheria você. Sempre você. 🌻❤️</p>
+    </div>
+    <p class="small">Feito com amor, só para você. 🌻</p>
+  </section>
+
+</main>
+
+<script>
+const answer = document.getElementById('answer');
+const error = document.getElementById('error');
+
+function checkAnswer(){
+  const value = answer.value.trim().replace(/\s/g,'');
+  if(value === '13/05' || value === '1305'){
+    document.getElementById('part1').classList.add('hidden');
+    document.getElementById('part2').classList.remove('hidden');
+    error.textContent = '';
+  }else{
+    error.textContent = 'Hmm... tenta lembrar direitinho. 🌻';
+  }
+}
+document.getElementById('check').addEventListener('click',checkAnswer);
+answer.addEventListener('keydown',e=>{if(e.key==='Enter') checkAnswer()});
+
+document.getElementById('next').addEventListener('click',()=>{
+  document.getElementById('part2').classList.add('hidden');
+  document.getElementById('part3').classList.remove('hidden');
+});
+</script>
+</body>
+</html>
